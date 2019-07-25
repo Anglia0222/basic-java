@@ -1,0 +1,20 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+/**
+ *
+ * 使用Lock，来进行加锁，保证线程安全
+ *
+ */
+public class Bank03 {
+	
+
+	
+	private String account;
+	private int balance;
+	
+	public Bank03(String account, int balance) {
+		super();
+		this.account = account;
+		this.balance = balance;
+	}
+}

@@ -1,0 +1,79 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+/**
+ * 从银行取钱的模型
+ * @author 有之君
+ *
+ */
+public class Bank {
+
+	public String account;
+	public int balance;
+	public Bank(String account, int balance) {
+		super();
+		this.account = account;
+		this.balance = balance;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public int getBalance() {
+		return balance;
+	}
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+	
+	public static void main(String[] args) {
+		Bank accout = new Bank("lpz", 1000);
+		new DrawMoney("lpz", 500, accout).start();
+		new DrawMoney("lpz", 500, accout).start();
+		
+		
+	}
+
+}
+class DrawMoney extends Thread{
+	public String name;
+	public int money;
+	public Bank bank;
+	public DrawMoney(String name, int money, Bank bank) {
+		super();
+		this.name = name;
+		this.money = money;
+		this.bank = bank;
+	}
+	@Override
+	public void run() {
+		
+		String account = bank.getAccount();
+		int balance = bank.getBalance();
+		int yue = balance - this.money;
+		
+		if(yue > 0){
+			System.out.println("余额为："+yue);
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			bank.setBalance(yue);
+		}else{
+			System.out.println("不能取钱");
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

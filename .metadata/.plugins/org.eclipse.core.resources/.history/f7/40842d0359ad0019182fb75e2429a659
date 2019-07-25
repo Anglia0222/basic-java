@@ -1,0 +1,19 @@
+package com.li.basicJava.myThreadLearning.day1;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+
+public class Thread03 implements Callable{
+
+	@Override
+	public Object call() throws Exception {
+		System.out.println(Thread.currentThread().getName());
+		return Thread.currentThread().getName();
+	}
+	
+	public static void main(String[] args) {
+		FutureTask ftask = new FutureTask<>(new Thread03());
+		new Thread(ftask).start();
+	}
+
+}

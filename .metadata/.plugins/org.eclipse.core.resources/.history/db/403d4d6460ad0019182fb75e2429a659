@@ -1,0 +1,13 @@
+package com.li.basicJava.myThreadLearning.day1;
+
+import java.util.concurrent.Callable;
+
+/**
+ * 线程的控制方法
+ * @author 有之君
+ *
+ */
+public class Thread04 implements Callable<V>{
+	
+
+}

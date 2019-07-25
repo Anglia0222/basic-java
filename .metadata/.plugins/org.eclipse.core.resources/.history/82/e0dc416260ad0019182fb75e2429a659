@@ -1,0 +1,10 @@
+package com.li.basicJava.myThreadLearning.day1;
+
+/**
+ * 线程的控制方法
+ * @author 有之君
+ *
+ */
+public class Thread04 {
+
+}

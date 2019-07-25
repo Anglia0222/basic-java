@@ -1,0 +1,10 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+/**
+ *
+ * 使用Lock，来进行加锁，保证线程安全
+ *
+ */
+public class Bank03 {
+
+}

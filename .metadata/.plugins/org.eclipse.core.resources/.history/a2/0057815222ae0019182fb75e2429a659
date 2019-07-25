@@ -1,0 +1,25 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+/**
+ * 银行类提供一个取存款的方法，该方法是一个synchronize修饰的同步方法，保证账户上前的同步安全问题
+ * @author 有之君
+ *
+ */
+public class NewBank {
+	
+	private String account;
+	private int balance;
+	
+	public NewBank(String account, int balance) {
+		super();
+		this.account = account;
+		this.balance = balance;
+	}
+	
+	
+	
+	
+	
+	
+
+}

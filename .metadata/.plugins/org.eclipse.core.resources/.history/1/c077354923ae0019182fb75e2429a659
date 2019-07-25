@@ -1,0 +1,51 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+/**
+ * 银行类提供一个取存款的方法，该方法是一个synchronize修饰的同步方法，保证账户上前的同步安全问题
+ * @author 有之君
+ *
+ */
+public class NewBank {
+	
+	private String account;
+	private int balance;
+	
+	public NewBank(String account, int balance) {
+		super();
+		this.account = account;
+		this.balance = balance;
+	}
+	
+	public synchronized void drawMoney(int money){
+		if(this.balance > money){
+			System.out.println(account+"取了"+money+"元");
+			this.balance = this.balance - money;
+			System.out.println(account+"还剩下"+this.balance+"元");
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		NewBank nb = new NewBank("1000", 1000);
+		
+		new People(money, nb)
+	}
+
+}
+
+class People extends Thread {
+	private String name;
+	private int money;
+	private NewBank nb;
+	public People(String name,int money, NewBank nb) {
+		super();
+		this.name = name;
+		this.money = money;
+		this.nb = nb;
+	}
+	@Override
+	public void run() {
+		nb.drawMoney(money);
+	}
+	
+}

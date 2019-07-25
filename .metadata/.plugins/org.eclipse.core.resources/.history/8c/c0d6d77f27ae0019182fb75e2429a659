@@ -1,0 +1,40 @@
+package com.li.basicJava.myThreadLearning.day2;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ *
+ * 使用Lock，来进行加锁，保证线程安全
+ *
+ */
+public class Bank03 {
+	
+
+	private final ReentrantLock lock = new ReentrantLock();
+	private String account;
+	private int balance;
+	
+	public Bank03(String account, int balance) {
+		super();
+		this.account = account;
+		this.balance = balance;
+	}
+	
+	
+	public void drawMoney(int money,String name){
+		lock.lock();
+		try {
+			if(this.balance > money){
+				System.out.println(name+"取了"+money+"元");
+				this.balance = this.balance - money;
+				System.out.println(name+"还剩下"+this.balance+"元");
+			}
+		} catch (Exception e) {
+		}finally {
+			lock.unlock();
+		}
+		
+		
+		
+	}
+}
